@@ -3,25 +3,21 @@
   =========================================================================
   PLACEHOLDERS TO UPDATE BEFORE YOU PUBLISH THIS SITE
   =========================================================================
-  1. EMAIL       — search for "your.email@gmail.com" (2 places). Replace
-                   with your real Gmail address so the "Email me" button and
-                   the Email row both work.
-  2. LINKEDIN    — search for "linkedin.com/in/yourprofile" (3 places).
-
-  6. LIVE DASHBOARDS — inside each project modal there's a dashed box that
-                   says "Embed your live Power BI report here". In Power BI:
-                   File → Publish to Web → copy the <iframe> code → paste it
-                   in place of that box for a clickable, live dashboard.
-  NOTE: no phone number appears anywhere on this site by design.
-  All placeholders are also highlighted in orange in the rendered page so
-  they're easy to spot — just Ctrl+F / Cmd+F for "EDIT ME" to find them all.
+  1. LIVE DASHBOARDS — inside the Workforce Intelligence and Pension System
+                   modals there's a dashed box that says "Embed your live
+                   Power BI report here" or "Add a link to your evaluation
+                   report...". Replace with a real link or Power BI
+                   File → Publish to Web iframe once you have one.
+  2. TESTIMONIAL — a testimonial section can be added back later if you get
+                   a quote from a supervisor or client.
+  NOTE: no phone number and no personal photo appear on this site by design.
   =========================================================================
 -->
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sonia Nzau  Data Analyst & Operations Researcher</title>
+<title>Sonia Nzau — Data Analyst &amp; Operations Researcher</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Droid+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
@@ -46,13 +42,14 @@
     --serif: "Droid Serif", Georgia, serif;
   }
   *{box-sizing:border-box; margin:0; padding:0;}
-  html{scroll-behavior:smooth;}
+  html{scroll-behavior:smooth; overflow-x:hidden;}
   body{
     background: var(--bg);
     color: var(--text);
     font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     line-height: 1.6;
     overflow-x: hidden;
+    width: 100%;
   }
   a{color:inherit; text-decoration:none;}
   ul{list-style:none;}
@@ -185,26 +182,15 @@
     font-size:11px; font-weight:700; font-family:var(--mono); color: var(--accent);
     background: var(--accent-dim); border-radius:4px; width:26px; height:22px; margin-bottom:14px;
   }
-  .process-step:nth-child(2) .tag, .process-step:nth-child(3) .tag{ color: var(--accent); background: var(--accent-dim); }
   .process-step h3{ font-size:16.5px; margin-bottom:8px; }
   .process-step p{ color: var(--text-dim); font-size:13.5px; }
   .process-step .tools{ margin-top:12px; font-size:11.5px; color: var(--text-faint); font-family: var(--mono); }
   .process-step .tools b{ color: var(--text); font-weight:600; }
 
-
-  /* ---------- about ---------- */
-  .about-grid{ display:grid; grid-template-columns: 0.8fr 1.2fr; gap: 60px; align-items:center; }
-  .about-photo{
-    aspect-ratio: 1/1.05; border-radius: var(--radius); border:1px solid var(--border);
-    background: var(--card-2);
-    display:flex; align-items:center; justify-content:center; flex-direction:column; gap:10px;
-    color: var(--text-faint); font-size:13px; text-align:center; padding: 20px;
-  }
-  .about-photo .initial{
-    width:88px; height:88px; border-radius:12px;
-    background: var(--accent);
-    color:#fff; font-weight:700; font-size:34px; display:flex; align-items:center; justify-content:center;
-  }
+  /* ---------- about (no-photo, icon facts panel) ---------- */
+  .about-grid{ display:grid; grid-template-columns: 0.85fr 1.15fr; gap: 60px; align-items:start; }
+  @media (max-width: 900px){ .about-grid{ grid-template-columns:1fr; } }
+  .facts-panel{ display:flex; flex-direction:column; gap:12px; }
   .about-text h2{ font-size: clamp(26px, 3.2vw, 36px); margin-bottom: 18px; line-height:1.2; }
   .about-text p{ color: var(--text-dim); font-size:15.5px; margin-bottom: 22px; max-width: 620px; }
   .badge-row{ display:flex; gap:10px; flex-wrap:wrap; }
@@ -226,13 +212,13 @@
     cursor:pointer;
   }
   .proj-card:hover{ transform: translateY(-4px); border-color: var(--accent); box-shadow: 0 16px 30px rgba(27,33,48,0.08); }
-  
-  .proj-thumb{ 
-      height: 240px; border-radius:8px; background: var(--card-2); 
-      border:1px solid var(--border); position:relative; overflow:hidden; margin-bottom:4px; } 
+
+  .proj-thumb{
+    height: 200px; border-radius:8px; background: var(--card-2);
+    border:1px solid var(--border); position:relative; overflow:hidden; margin-bottom:4px;
+  }
   .proj-thumb img{ width:100%; height:100%; object-fit:cover; display:block; }
-  
-  .proj-thumb .bars{ display:flex; align-items:flex-end; gap:7px; height: 55px; width:100%;padding:16px; box-sizing:border-box; }
+  .proj-thumb .bars{ display:flex; align-items:flex-end; gap:7px; height:100%; width:100%; padding:16px; box-sizing:border-box; }
   .proj-thumb .bars i{ flex:1; background: var(--accent); border-radius:3px 3px 0 0; }
   .proj-thumb .bars i:nth-child(6n+2){ opacity:.8; }
   .proj-thumb .bars i:nth-child(6n+3){ opacity:.65; }
@@ -282,13 +268,15 @@
   .info-row{
     display:flex; align-items:center; gap:14px; background: var(--card-2);
     border:1px solid var(--border); border-radius:8px; padding: 14px 16px;
+    max-width:100%;
   }
   .info-row .icon{
     width:32px; height:32px; border-radius:6px; background: var(--accent-dim); color: var(--accent);
     display:flex; align-items:center; justify-content:center; font-size:14px; flex-shrink:0; font-weight:700;
   }
+  .info-row .text{ min-width:0; }
   .info-row .label{ font-size:10px; color: var(--text-faint); letter-spacing:.4px; text-transform:uppercase; font-family: var(--mono); }
-  .info-row .value{ font-size:14px; font-weight:600; }
+  .info-row .value{ font-size:14px; font-weight:600; word-break:break-word; }
   .edit-me{
     display:inline-block; margin-left:8px; font-size:10px; font-weight:700; letter-spacing:.4px;
     color: var(--edit); background: var(--edit-bg); border:1px solid rgba(184,99,27,0.3);
@@ -346,12 +334,14 @@
 
   @media (max-width: 900px){
     .hero-grid{ grid-template-columns:1fr; }
-    .about-grid{ grid-template-columns:1fr; }
-    .about-photo{ max-width: 240px; }
   }
   @media (max-width: 780px){
     nav.links{ display:none; }
     .navToggle{ display:block; }
+  }
+  @media (max-width: 480px){
+    .wrap{ padding: 0 18px; }
+    .hero{ padding: 56px 0 60px; }
   }
 </style>
 </head>
@@ -378,9 +368,9 @@
 <section id="overview" class="hero">
   <div class="wrap hero-grid">
     <div class="reveal">
-      <div class="eyebrow"><span class="cell-ref">A1</span> DATA ANALYST · OPERATIONS RESEARCH · MONITORING & EVALUATION</div>
+      <div class="eyebrow">DATA ANALYST · OPERATIONS RESEARCH · MONITORING &amp; EVALUATION</div>
       <h1>Sonia Nzau turns program data into <span class="grad">decisions leaders can act on.</span></h1>
-      <p class="sub">2+ years turning fieldwork, evaluations and program metrics into SQL, Power BI and Excel dashboards that drive real decisions from national pension system reviews to workforce performance models across Kenya's development and social impact sector.</p>
+      <p class="sub">2+ years turning fieldwork, evaluations and program metrics into SQL, Power BI and Excel dashboards that drive real decisions — from national pension system reviews to workforce performance models across Kenya's development and social impact sector.</p>
       <div class="hero-actions">
         <a href="#projects" class="cta-btn">View projects →</a>
         <a href="#contact" class="btn-outline">Get in touch</a>
@@ -393,7 +383,7 @@
           <div class="profile-photo">S</div>
           <div>
             <div class="name">Sonia Nzau</div>
-            <div class="role">DATA ANALYST · MONITORING AND EVALUATION  · RESEARCHER</div>
+            <div class="role">DATA ANALYST · MONITORING &amp; EVALUATION RESEARCHER</div>
           </div>
         </div>
         <div class="stat-grid">
@@ -433,31 +423,30 @@
   </div>
   <div class="marquee-row reverse">
     <div class="marquee-track">
-      <span>M&E Frameworks</span><span class="hl">OECD DAC Evaluation</span><span>Sampling Methodologies</span><span>Proposal Writing</span><span class="hl">Human-Centred Design</span><span>Stakeholder Engagement</span><span>Statistical Analysis</span><span class="hl">Report Writing</span><span>Program Coordination</span>
-      <span>M&E Frameworks</span><span class="hl">OECD DAC Evaluation</span><span>Sampling Methodologies</span><span>Proposal Writing</span><span class="hl">Human-Centred Design</span><span>Stakeholder Engagement</span><span>Statistical Analysis</span><span class="hl">Report Writing</span><span>Program Coordination</span>
+      <span>M&amp;E Frameworks</span><span class="hl">OECD DAC Evaluation</span><span>Sampling Methodologies</span><span>Proposal Writing</span><span class="hl">Human-Centred Design</span><span>Stakeholder Engagement</span><span>Statistical Analysis</span><span class="hl">Report Writing</span><span>Program Coordination</span>
+      <span>M&amp;E Frameworks</span><span class="hl">OECD DAC Evaluation</span><span>Sampling Methodologies</span><span>Proposal Writing</span><span class="hl">Human-Centred Design</span><span>Stakeholder Engagement</span><span>Statistical Analysis</span><span class="hl">Report Writing</span><span>Program Coordination</span>
     </div>
   </div>
 </div>
 
 <!-- ================= PROCESS ================= -->
 <div class="process-wrap">
-
   <div class="wrap">
     <div class="process-head reveal">
-      <div class="eyebrow"><span class="cell-ref">B1</span> HOW AN ENGAGEMENT RUNS</div>
+      <div class="eyebrow">HOW AN ENGAGEMENT RUNS</div>
       <h2>From a field survey to a decision, in three moves.</h2>
     </div>
     <div class="process-grid">
       <div class="process-step reveal">
         <span class="tag">01</span>
         <h3>Collect &amp; structure</h3>
-        <p>Design data collection instruments and pull together siloed sources HR, finance, survey, program into one clean, query-ready model.</p>
+        <p>Design data collection instruments and pull together siloed sources — HR, finance, survey, program — into one clean, query-ready model.</p>
         <div class="tools">Built with <b>KoboToolbox · SQL · Excel</b></div>
       </div>
       <div class="process-step reveal">
         <span class="tag">02</span>
         <h3>Analyse against a framework</h3>
-        <p>Apply the right lens OECD DAC criteria, statistical testing, or a sampling methodology so findings are defensible, not just descriptive.</p>
+        <p>Apply the right lens — OECD DAC criteria, statistical testing, or a sampling methodology — so findings are defensible, not just descriptive.</p>
         <div class="tools">Built with <b>SPSS · EpiData · Power BI</b></div>
       </div>
       <div class="process-step reveal">
@@ -470,14 +459,29 @@
   </div>
 </div>
 
-<!-- ================= ABOUT ================= -->
+<!-- ================= ABOUT (no photo — quick-facts panel) ================= -->
 <section class="section-pad">
   <div class="wrap about-grid">
-    <div class="about-photo reveal">
-            <img src="soniaimage.jpeg" alt="Sonia Nzau" style="width:100%;height:100%;object-fit:cover;border-radius:inherit;">
+    <div class="facts-panel reveal">
+      <div class="info-row">
+        <span class="icon">📍</span>
+        <div class="text"><div class="label">Location</div><div class="value">Nairobi, Kenya — remote-ready</div></div>
+      </div>
+      <div class="info-row">
+        <span class="icon">🛠</span>
+        <div class="text"><div class="label">Primary Tools</div><div class="value">SQL · Power BI · Excel · SPSS</div></div>
+      </div>
+      <div class="info-row">
+        <span class="icon">🔍</span>
+        <div class="text"><div class="label">Domain Focus</div><div class="value">M&amp;E · Social Impact · Program Evaluation</div></div>
+      </div>
+      <div class="info-row">
+        <span class="icon">⏱</span>
+        <div class="text"><div class="label">Availability</div><div class="value">Contract &amp; full-time roles</div></div>
+      </div>
     </div>
     <div class="about-text reveal">
-      <div class="eyebrow"><span class="cell-ref">C1</span> OVERVIEW</div>
+      <div class="eyebrow">OVERVIEW</div>
       <h2>A dataset is only as good as the decision it enables.</h2>
       <p>Data Analyst and Operations Researcher with 2+ years of experience in program management, monitoring &amp; evaluation (M&amp;E), and research &amp; development consulting across the international development and social impact sectors. Skilled in using SQL, Power BI, Excel, SPSS and Google Sheets to collect, clean, analyse and visualise data for evidence-based decision-making — with hands-on experience applying M&amp;E frameworks, sampling methodologies, and OECD DAC evaluation criteria (Relevance, Effectiveness, Efficiency, Impact, Sustainability) to program assessment.</p>
       <p>My focus sits specifically at the intersection of <b style="color:var(--text)">program evaluation and dashboarding</b> — turning field surveys, national program data and organisational HR/finance systems into models and visuals that hold up in front of an executive audience. I'm not chasing generalist BI work outside that lane; evaluation frameworks, stakeholder-heavy programs, and social-impact data are where I do my best work.</p>
@@ -495,13 +499,13 @@
 <section id="projects" class="section-pad">
   <div class="wrap">
     <div class="proj-head reveal">
-      <div class="eyebrow"><span class="cell-ref">D1</span> SELECTED WORK</div>
+      <div class="eyebrow">SELECTED WORK</div>
       <h2>Three datasets, three different stories.</h2>
     </div>
     <div class="proj-grid">
 
       <div class="proj-card reveal" onclick="openModal('m1')">
-        <div class="proj-thumb"><div class="bars"><i style="height:40%"></i><i style="height:70%"></i><i style="height:55%"></i><i style="height:90%"></i><i style="height:35%"></i><i style="height:65%"></i></div></div>
+        <div class="proj-thumb"><img src="workforce-intelligence-thumbnail.jpg" alt="Workforce Intelligence dashboard"></div>
         <div class="proj-cat">Workforce Analytics · Power BI</div>
         <h3>Workforce Intelligence &amp; Organizational Performance Analysis</h3>
         <p>Integrated 7 siloed HR, finance, health, education and performance datasets covering 30,000+ employees into a single star-schema model for Roblox Africa Operations.</p>
@@ -509,7 +513,8 @@
       </div>
 
       <div class="proj-card reveal" onclick="openModal('m2')">
-       <div class="proj-thumb"><img src="tasty-bites-thumbnail.jpg" alt="Tasty Bites dashboard" style="width:100%;height:100%;object-fit:cover;"></div>
+        <div class="proj-thumb"><img src="tasty-bites-thumbnail.jpg" alt="Tasty Bites dashboard"></div>
+        <div class="proj-cat">Sales Analytics · Power BI</div>
         <h3>Tasty Bites Restaurant Sales Analysis</h3>
         <p>Consolidated 250 daily sales records across an 8-month trading window to uncover traffic, promotion and weather-driven revenue trends.</p>
         <span class="proj-link">View breakdown →</span>
@@ -517,7 +522,7 @@
 
       <div class="proj-card reveal" onclick="openModal('m3')">
         <div class="proj-thumb"><div class="bars"><i style="height:85%"></i><i style="height:55%"></i><i style="height:65%"></i><i style="height:40%"></i><i style="height:75%"></i><i style="height:60%"></i></div></div>
-        <div class="proj-cat">Program Evaluation · M&E</div>
+        <div class="proj-cat">Program Evaluation · M&amp;E</div>
         <h3>National Pension Supervision System M&amp;E</h3>
         <p>Coordinated stakeholder engagement and synthesised 10 evaluation surveys across a 28-week national program to support executive decision-making.</p>
         <span class="proj-link">View breakdown →</span>
@@ -531,7 +536,7 @@
 <section id="experience" class="section-pad">
   <div class="wrap">
     <div class="exp-head reveal">
-      <div class="eyebrow"><span class="cell-ref">E1</span> EXPERIENCE</div>
+      <div class="eyebrow">EXPERIENCE</div>
       <h2>Where the numbers were put to work.</h2>
     </div>
 
@@ -597,30 +602,30 @@
   <div class="wrap">
     <div class="contact-card reveal">
       <div>
-        <div class="eyebrow"><span class="cell-ref">F1</span> GET IN TOUCH</div>
+        <div class="eyebrow">GET IN TOUCH</div>
         <h2>Have data that needs a decision?</h2>
         <p>Whether it's a program evaluation, a workforce dashboard, or a national M&amp;E framework — I'm happy to talk through it. Reach out by email or LinkedIn.</p>
         <div class="hero-actions">
           <a href="mailto:sonia.nzau58@gmail.com" class="cta-btn">Email me</a>
-          <a href="https://linkedin.com/in/yourprofile" class="btn-outline" target="_blank" rel="noopener">LinkedIn ↗</a>
+          <a href="https://www.linkedin.com/in/sonia-nzilani-b635422b1/" class="btn-outline" target="_blank" rel="noopener">LinkedIn ↗</a>
         </div>
       </div>
       <div class="contact-info">
-        <div class="info-row placeholder">
+        <div class="info-row">
           <span class="icon">@</span>
-          <div><div class="label">Email</div><div class="value"><a href="mailto:sonia.nzau58@gmail.com">sonia.nzau58@gmail.com</a>
+          <div class="text"><div class="label">Email</div><div class="value"><a href="mailto:sonia.nzau58@gmail.com">sonia.nzau58@gmail.com</a></div></div>
         </div>
-        <div class="info-row placeholder">
+        <div class="info-row">
           <span class="icon">in</span>
-          <div><div class="label">LinkedIn</div><div class="value"><a href="https://linkedin.com/in/yourprofile" target="_blank" rel="noopener">linkedin.com/in/yourprofile</a><span class="edit-me">EDIT ME</span></div></div>
+          <div class="text"><div class="label">LinkedIn</div><div class="value"><a href="https://www.linkedin.com/in/sonia-nzilani-b635422b1/" target="_blank" rel="noopener">linkedin.com/in/sonia-nzilani-b635422b1</a></div></div>
         </div>
-        <div class="info-row placeholder">
+        <div class="info-row">
           <span class="icon">📍</span>
-          <div><div class="label">Location</div><div class="value">Nairobi, Kenya</div></div>
+          <div class="text"><div class="label">Location</div><div class="value">Nairobi, Kenya</div></div>
         </div>
         <div class="info-row">
           <span class="icon">⏱</span>
-          <div><div class="label">Response time</div><div class="value">Usually within 1–2 business days</div></div>
+          <div class="text"><div class="label">Response time</div><div class="value">Usually within 1–2 business days</div></div>
         </div>
       </div>
     </div>
@@ -635,7 +640,7 @@
     </div>
     <div class="copy">© 2026 Sonia Nzau — Data Analyst &amp; Operations Researcher</div>
     <div class="foot-links">
-      <a href="https://linkedin.com/in/yourprofile" target="_blank" rel="noopener" title="LinkedIn">in</a>
+      <a href="https://www.linkedin.com/in/sonia-nzilani-b635422b1/" target="_blank" rel="noopener" title="LinkedIn">in</a>
       <a href="mailto:sonia.nzau58@gmail.com" title="Email">@</a>
     </div>
   </div>
@@ -670,7 +675,9 @@
       <p>Findings were translated into 5 evidence-based recommendations on leave capacity planning, insurance backlog resolution and underperforming-department support, presented to a simulated executive leadership audience.</p>
     </div>
 
-    <div class="embed-placeholder">🔧 Embed your live Power BI report here — File → Publish to Web → paste the iframe code in place of this box.</div>
+    <a href="workforce-intelligence-deck.pdf" class="proj-link" target="_blank">View the slide deck →</a><br>
+    <a href="workforce-schema.png" class="proj-link" target="_blank">View the database schema →</a><br>
+    <a href="workforce-schema.sql" class="proj-link" target="_blank">View the SQL script →</a>
   </div>
 </div>
 
@@ -708,7 +715,7 @@
 <div class="modal-overlay" id="overlay3">
   <div class="modal" id="modal-m3">
     <button class="modal-close" onclick="closeModal()">✕</button>
-    <div class="proj-cat">Program Evaluation · Monitoring & Evaluation</div>
+    <div class="proj-cat">Program Evaluation · Monitoring &amp; Evaluation</div>
     <h3>National Pension Supervision System M&amp;E</h3>
     <div class="tools">Client project — Dataque Analytics · Tools: KoboToolbox · Excel · Stakeholder Engagement Planning</div>
 
@@ -726,7 +733,7 @@
     </div>
     <div class="wu-block">
       <div class="wu-label">Impact</div>
-      <p>Supported timely, evidence-based decision-making for program leadership, one of 6+ end-to-end client engagements led at Dataque Analytics, including baseline, midline and endline evaluations and data quality assessments.</p>
+      <p>Supported timely, evidence-based decision-making for program leadership — one of 6+ end-to-end client engagements led at Dataque Analytics, including baseline, midline and endline evaluations and data quality assessments.</p>
     </div>
 
     <div class="embed-placeholder">🔧 Add a link to your evaluation report, case study PDF, or slide deck here.</div>
